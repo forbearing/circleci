@@ -21,35 +21,35 @@ jobs:
   cloud-gateway:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/spring-petclinic-msa/cloud-gateway
+    working_directory: ~/circleci/cloud-gateway
     steps:
       - build-service:
           service-name: "cloud-gateway"
   customers-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/spring-petclinic-msa/customers-service
+    working_directory: ~/circleci/customers-service
     steps:
       - build-service:
           service-name: "customers-service"
   vets-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/spring-petclinic-msa/vets-service
+    working_directory: ~/circleci/vets-service
     steps:
       - build-service:
           service-name: "vets-service"
   visits-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/spring-petclinic-msa/visits-service
+    working_directory: ~/circleci/visits-service
     steps:
       - build-service:
           service-name: "visits-service"
   web-app:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/spring-petclinic-msa/web-app
+    working_directory: ~/circleci/web-app
     steps:
       - build-service:
           service-name: "web-app"
@@ -63,7 +63,7 @@ commands:
     steps:
       # git pull
       - checkout:
-          path: ~/spring-petclinic-msa
+          path: ~/circleci
 
       - setup_remote_docker
 
